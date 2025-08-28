@@ -1,7 +1,31 @@
-<h2>Nuevo Pedido</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Guardar</button>
-</form>
-<a href="{% url 'lista_pedidos' %}">Volver</a>
+{% extends "pedidos/base.html" %}
+
+{% block title %}Nuevo Pedido{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+          <h3>📝 Nuevo Pedido</h3>
+        </div>
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            
+            <!-- Campos del formulario -->
+            {{ form.as_p }}
+
+            <!-- Botones -->
+            <div class="d-flex justify-content-between mt-4">
+              <a href="{% url 'lista_pedidos' %}" class="btn btn-secondary">← Volver</a>
+              <button type="submit" class="btn btn-success">Guardar ✅</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
