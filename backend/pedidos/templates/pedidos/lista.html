@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Lista de Pedidos{% endblock %}
+{% block content %}
+  <h2 class="text-center mb-4">📋 Lista de Pedidos</h2>
+  <ul class="list-group">
+    {% for pedido in pedidos %}
+      <li class="list-group-item">
+        {{ pedido.cliente }} pidió {{ pedido.cantidad }} x {{ pedido.producto }}
+      </li>
+    {% empty %}
+      <li class="list-group-item text-muted">No hay pedidos registrados.</li>
+    {% endfor %}
+  </ul>
+  <div class="mt-3 text-center">
+    <a href="{% url 'crear_pedido' %}" class="btn btn-success">➕ Crear nuevo pedido</a>
+  </div>
+{% endblock %}
