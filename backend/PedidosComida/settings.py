@@ -75,8 +75,15 @@ WSGI_APPLICATION = 'PedidosComida.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',  # motor de SQL Server
+        'NAME': 'PedidosDB',  # nombre de la base de datos
+        'USER': 'sa',          # usuario SQL Server
+        'PASSWORD': 'admin',   # contraseña
+        'HOST': 'MARKC\\SQLEXPRESS',           # servidor, puede ser IP o nombre del servidor
+        'PORT': '',                # puerto (1433 es por defecto)
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',  # revisa que driver tienes instalado
+        },
     }
 }
 
